@@ -12,7 +12,7 @@ class RemindersController < ApplicationController
       @reminder.user_id = user.id
       respond_to do |format|
         if @reminder.save
-          format.html { redirect_to root_path, notice: 'Reminder was successfully created.' }
+          format.html { redirect_to users_path, notice: 'Reminder was successfully created.' }
           format.json { render :show, status: :created, location: @reminder }
 
         else

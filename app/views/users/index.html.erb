@@ -1,1 +1,37 @@
-<p><%= render 'reminder' %></p>
+<%= simple_form_for([current_user, Reminder.new], multipart: true) do |f| %>
+  <%= f.error_notification %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <div class="well well-lg">
+      <h3 style="text-align: center">What can we help you remember?</h3>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :title, required: true %>
+      <%= f.input :description, required: true %>
+      <%= f.select :priority, options_for_select([['urgent'],['high'],['normal'],['low']])%>
+    </div>
+    <br />
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+    <div class="well well-lg">
+      <h2 style="text-align: center">Don't forget...</h2>
+    </div>
+
+      <h3> <%= @user.user_name.capitalize %>'s Reminders</h3><br />
+      <% @user.reminders.each do |reminder| %>
+        <blockquote>
+          <p><%= reminder.title %></p>
+          <p><%= reminder.description %></p>
+          <small><cite title="Source Title"><%= reminder.priority %> priority</cite></small>
+        </blockquote>
+      <% end %>
+    </div>
+  </div>
+</div>
