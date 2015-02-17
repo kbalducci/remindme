@@ -1,10 +1,24 @@
 <%= simple_form_for([current_user, Reminder.new], multipart: true) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+<div class="container">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <div class="well well-lg">
+      <h2 style="text-align: center">What can we help you remember?</h2>
+    </div>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+      <div class="form-inputs">
     <%= f.input :title, required: true %>
     <%= f.input :description, required: true %>
-    <%= f.select :priority, required: true %>
+    <%= f.select :priority, options_for_select([['urgent'],['high'],['normal'],['low']])%>
+
   </div>
 
   <div class="form-actions">
@@ -12,75 +26,3 @@
   </div>
 <% end %>
 
-
-<form class="form-horizontal">
-  <fieldset>
-    <legend>Legend</legend>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label"><%= f.input :title, required: true %></label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Title">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label"><%= f.input :description, required: true %></label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-2 control-label">Radios</label>
-      <div class="col-lg-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-            Option one is this
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label"><%= f.select :priority, required: true %></label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-          <option>Urgent</option>
-          <option>High</option>
-          <option>Normal</option>
-          <option>Low</option>
-        </select>
-        <br>
-        <select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
