@@ -6,8 +6,9 @@
         <p><a class="btn btn-primary btn-lg" <%= link_to('Logout', destroy_user_session_path(@current_user), :method => :delete) %></a>
         <p><a class="btn btn-primary btn-lg" <%= link_to 'Take me to my Dashboard', users_path %></a></p>
       <% else %>
-        <%= link_to 'Sign Up Now', new_user_registration_path %>
-        <%= link_to 'Sign In Now', new_user_session_path %>
+        <p><a class="btn btn-primary btn-lg" <%= link_to 'Sign Up Now', new_user_registration_path %></a>
+        <p><a class="btn btn-primary btn-lg" <%= link_to 'Sign In Now', new_user_session_path %></a></p>
+
       <% end %>
 
   </div>

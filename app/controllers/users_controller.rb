@@ -3,7 +3,7 @@ protect_from_forgery with: :exception
 before_action :authenticate_user!
 
 def index
-  @user = User.first
+  @user = current_user
   @reminders = Reminder.all
 
 end
