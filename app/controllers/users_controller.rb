@@ -5,7 +5,10 @@ before_action :authenticate_user!
 def index
   @user = current_user
   @reminders = Reminder.all
+end
 
+def admin?
+  is_admin == true
 end
 
 def new

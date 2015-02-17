@@ -1,6 +1,11 @@
 class RemindersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = User.all
+    @reminders = Reminder.all
+  end
+
   def new
     set_user
     set_new_reminder
@@ -20,7 +25,7 @@ class RemindersController < ApplicationController
           format.json { render json: @reminder.errors, status: :unprocessable_entity }
         end
       end
-    end
+  end
 
 
   private

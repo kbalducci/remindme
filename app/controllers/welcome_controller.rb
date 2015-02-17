@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
     @user = User.first
     @reminders = Reminder.all
     @users = User.all
+    user = current_user
   end
 
   private

@@ -3,7 +3,8 @@
     <h1>Remind Me 101</h1>
 
     <% if user_signed_in? %>
-        <p><a class="btn btn-primary btn-lg" <%= link_to('Logout', destroy_user_session_path(@current_user), :method => :delete) %></a>
+
+        <p><a class="btn btn-primary btn-lg" <%= link_to('Logout', destroy_user_session_path(@current_user), :method => :delete) %></a></p>
         <p><a class="btn btn-primary btn-lg" <%= link_to 'Take me to my Dashboard', users_path %></a></p>
       <% else %>
         <p><a class="btn btn-primary btn-lg" <%= link_to 'Sign Up Now', new_user_registration_path %></a>
